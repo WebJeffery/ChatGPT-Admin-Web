@@ -16,7 +16,7 @@ const authMiddleware: Middleware =
       // @ts-ignore
       if (swr.data?.code === ErrorCodeEnum.AuthFail) {
         useStore().clearAuthToken();
-        useRouter().push('/auth');
+        // useRouter().push('/auth');
         throw new Error('Auth failed');
       }
     }

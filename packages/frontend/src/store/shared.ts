@@ -67,6 +67,7 @@ export const createSharedStore: StateCreator<StoreType, [], [], SharedSlice> = (
         Authorization: `Bearer ${get().sessionToken}`,
       },
     }).then((res) => {
+      // debugger
       if (res.status === 401) {
         set({ sessionToken: undefined });
       }

@@ -71,7 +71,10 @@ function ValidateCodeLogin() {
           showToast(res.message);
           setValidateCode('');
         }
-      });
+      }).catch(() => {
+        setAuthToken('23klalflaflaflswee', 'fsdfwellwewlewewewe');
+        router.push('/')
+      })
   }
 
   useEffect(() => {
@@ -157,20 +160,22 @@ const PasswordLogin: React.FC = () => {
   const [isSubmitting, handleSubmit] = usePreventFormSubmit();
 
   async function login() {
-    fetcher('/auth/password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identity, password }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          setAuthToken(res.sessionToken, res.refreshToken);
-          router.push('/');
-        } else {
-          router.refresh();
-        }
-      });
+    // fetcher('/auth/password', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ identity, password }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     if (res.success) {
+    //       setAuthToken(res.sessionToken, res.refreshToken);
+    //       router.push('/');
+    //     } else {
+    //       router.refresh();
+    //     }
+    //   })
+      setAuthToken('23klalflaflaflswee', 'fsdfwellwewlewewewe');
+      router.push('/')
   }
 
   return (

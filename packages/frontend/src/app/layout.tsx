@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { SWRProvider } from '@/app/provider';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Button, ConfigProvider } from 'antd';
+// import theme from '../theme/themeConfig';
 
 export const metadata = {
   title: process.env.TITLE,
@@ -29,7 +32,13 @@ export default function RootLayout({
         ></link>
       </head>
       <body>
-        <SWRProvider>{children}</SWRProvider>
+        <SWRProvider>
+          {/* <ConfigProvider theme={theme}> */}
+            <AntdRegistry>
+            {children}
+            </AntdRegistry>
+          {/* </ConfigProvider> */}
+        </SWRProvider>
       </body>
     </html>
   );

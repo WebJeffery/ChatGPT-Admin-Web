@@ -78,22 +78,24 @@ export function ChatItem(props: {
 export function ChatList() {
   const { fetcher, currentChatSessionId } = useStore();
 
-  const { data: sessions } = useSWR<ChatSession[], any, string>(
-    '/chat/sessions',
-    (url) => {
-      return fetcher(url)
-        .then((res) => res.json())
-        .then((res) =>
-          res.map(
-            (session: ChatSession & { _count: { messages: number } }) => ({
-              ...session,
-              messagesCount: session._count.messages,
-              _count: undefined,
-            }),
-          ),
-        );
-    },
-  );
+  // const { data: sessions } = useSWR<ChatSession[], any, string>(
+  //   '/chat/sessions',
+  //   (url) => {
+  //     return fetcher(url)
+  //       .then((res) => res.json())
+  //       .then((res) =>
+  //         res.map(
+  //           (session: ChatSession & { _count: { messages: number } }) => ({
+  //             ...session,
+  //             messagesCount: session._count.messages,
+  //             _count: undefined,
+  //           }),
+  //         ),
+  //       )
+  //   },
+  // );
+
+  let sessions: any = null
 
   return (
     <div className={styles['chat-list']}>

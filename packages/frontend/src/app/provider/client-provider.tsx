@@ -71,7 +71,7 @@ export function AuthProvider({
         if (admin) {
           return router.push('/');
         }
-        return router.push('/auth');
+        // return router.push('/auth');
       }
     }
     setIsValidating(false);

@@ -122,20 +122,20 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
   const [newbtnExpanded, setNewbtnExpanded] = useState<boolean>(false);
   const [morebtnExpanded, setMorebtnExpanded] = useState<boolean>(false);
 
-  useSWR('/announcement/recent', (url) =>
-    fetcher(url)
-      .then((res) => res.json())
-      .then((res) => res.data)
-      .then((latestAnnouncement) => {
-        if (latestAnnouncement.id !== latestAnnouncementId) {
-          showModal({
-            title: latestAnnouncement.title,
-            children: <Markdown content={latestAnnouncement.content} />,
-          });
-          setLatestAnnouncementId(latestAnnouncement.id as number);
-        }
-      }),
-  );
+  // useSWR('/announcement/recent', (url) =>
+  //   fetcher(url)
+  //     .then((res) => res.json())
+  //     .then((res) => res.data)
+  //     .then((latestAnnouncement) => {
+  //       if (latestAnnouncement.id !== latestAnnouncementId) {
+  //         showModal({
+  //           title: latestAnnouncement.title,
+  //           children: <Markdown content={latestAnnouncement.content} />,
+  //         });
+  //         setLatestAnnouncementId(latestAnnouncement.id as number);
+  //       }
+  //     }),
+  // );
 
   const { data: userData, isLoading: isUserDataLoading } = useSWR<IUserData>(
     '/user/info',

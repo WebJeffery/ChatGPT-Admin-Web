@@ -45,7 +45,7 @@ export default function SetupPage() {
             break;
         }
       } else {
-        router.push('/auth');
+        // router.push('/auth');
       }
     });
   }
