@@ -1,4 +1,4 @@
-export const TITLE = process.env.TITLE || 'ChatGPT Admin Web';
+export const TITLE = process.env.TITLE || 'ChatArt AI';
 
 const cn = {
   // Auth Page

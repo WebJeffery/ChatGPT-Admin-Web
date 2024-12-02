@@ -9,7 +9,8 @@ import { createRoot } from 'react-dom/client';
 import useSWR from 'swr';
 
 import { SetPassword } from '@/app/auth/modal';
-import { ChatList } from '@/components/chat/chat-list';
+// import { ChatList } from '@/components/chat/chat-list';
+import { AsideMenu } from './components/asideMenu';
 import { Loading } from '@/components/loading';
 import { Markdown } from '@/components/markdown';
 import { Modal, showModal } from '@/components/ui-lib';
@@ -189,15 +190,6 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
         className={styles.sidebar + ` ${showSideBar && styles['sidebar-show']}`}
       >
         <div className={styles['sidebar-header']}>
-          <div className={styles['sidebar-title']}>{Locale.Index.Title}</div>
-          {!!process.env.NEXT_PUBLIC_OA && (
-            <div className={styles['sidebar-sub-title']}>
-              {Locale.Index.SubTitle}
-              <span className={styles['sidebar-wechat-oa']}>
-                {process.env.NEXT_PUBLIC_OA}
-              </span>
-            </div>
-          )}
           <div className={styles['sidebar-logo']}>
             {process.env.LOGO_SIDEBAR ? (
               <Image
@@ -210,65 +202,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
               <ChatGptIcon />
             )}
           </div>
-        </div>
-        <div className={styles['sidebar-newbtn']}>
-          {!newbtnExpanded ? (
-            <button
-              className={styles['sidebar-new']}
-              onClick={() => setNewbtnExpanded(true)}
-            >
-              <div>
-                <div className={styles['icon']}>
-                  <AddIcon />
-                </div>
-                <div className={styles['text']}>{Locale.Home.NewChat}</div>
-              </div>
-            </button>
-          ) : (
-            <>
-              <Link
-                href="/chat/new"
-                onClick={() => {
-                  setShowSideBar(false);
-                  setNewbtnExpanded(false);
-                  setMorebtnExpanded(false);
-                }}
-                className={styles['link-full']}
-                style={{ color: 'inherit', textDecoration: 'inherit' }}
-              >
-                <button className={styles['sidebar-new']}>
-                  <div>
-                    <div className={styles['icon']}>
-                      <AddIcon />
-                    </div>
-                    <div className={styles['text']}>
-                      {Locale.Home.NewBlankChat}
-                    </div>
-                  </div>
-                </button>
-              </Link>
-
-              <button className={styles['sidebar-new']}>
-                <Link
-                  href="/plugin"
-                  onClick={() => {
-                    setShowSideBar(false);
-                    setNewbtnExpanded(false);
-                    setMorebtnExpanded(false);
-                  }}
-                  className={styles['link-full']}
-                  style={{ color: 'inherit', textDecoration: 'inherit' }}
-                >
-                  <div>
-                    <div className={styles['icon']}>
-                      <PluginIcon />
-                    </div>
-                    <div className={styles['text']}>{Locale.Home.Plugin}</div>
-                  </div>
-                </Link>
-              </button>
-            </>
-          )}
+          <div className={styles['sidebar-title']}>{Locale.Index.Title}</div>
         </div>
         <div
           className={styles['sidebar-body']}
@@ -276,7 +210,8 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
             setShowSideBar(false);
           }}
         >
-          <ChatList />
+          {/* <ChatList /> */}
+          <AsideMenu />
         </div>
 
         <div className={styles['sidebar-tail']}>

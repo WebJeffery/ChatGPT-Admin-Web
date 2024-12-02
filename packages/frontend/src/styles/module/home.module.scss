@@ -31,7 +31,6 @@
 
     max-width: 100vw;
     max-height: var(--full-height);
-
     border-radius: 0;
   }
 }
@@ -40,8 +39,7 @@
   top: 0;
   width: var(--sidebar-width);
   box-sizing: border-box;
-  padding: 10px;
-  background-color: var(--secondary);
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   box-shadow: inset -2px 0px 2px 0px rgb(0, 0, 0, 0.05);
@@ -58,6 +56,18 @@
 
 .mobile {
   display: none;
+}
+
+.aside-menu {
+  border: none !important;
+
+  :global(.ant-menu-item) {
+    font-size: 16px;
+  }
+
+  :global(.ant-menu-item-icon svg) {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -89,14 +99,15 @@
 }
 
 .sidebar-header {
+  display: flex;
+  align-items: center;
   position: relative;
   padding: 15px 10px 20px 12px;
+  border-bottom: 1px solid #ccc;
 }
 
 .sidebar-logo {
-  position: absolute;
-  right: 0;
-  bottom: 18px;
+  margin-right: 10px;
 }
 
 .sidebar-title {
@@ -202,6 +213,7 @@
 .sidebar-body {
   flex: 1;
   overflow: auto;
+  padding: 10px;
 }
 
 .sidebar-wechat-oa {
@@ -355,6 +367,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  padding-bottom: 10px;
 
   .sidebar-premium {
     

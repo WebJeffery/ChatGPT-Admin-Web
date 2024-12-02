@@ -9,7 +9,7 @@ const config = fs.existsSync(CONFIG_FILE)
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    TITLE: config?.brand?.title ?? config?.title ?? 'ChatGPT Admin Web',
+    TITLE: config?.brand?.title ?? config?.title ?? 'ChatArt AI',
     DESCRIPTION:
       config?.brand?.description ??
       config?.description ??
